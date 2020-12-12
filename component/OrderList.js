@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Icons} from './components';
 import {
   View,
   Text,
   Image,
+  Modal,
+  TextInput,
   FlatList,
   ScrollView,
   StyleSheet,
@@ -77,11 +79,47 @@ const renderList = ({item}) => (
 );
 
 function OrderList() {
+  const [modalVisible, setModalVisible] = useState(false);
   return (
     <View>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+        }}>
+        <View style={css.mainModal}>
+          <View style={css.modalContainer}>
+            <View>
+              <Text style={css.modalTextHeader}>Logout</Text>
+              <TouchableOpacity
+                style={css.modalXButton}
+                onPress={() => {
+                  setModalVisible(!modalVisible);
+                }}>
+                <Image
+                  source={require('../assets/icon/cancel.png')}
+                  style={{width: 30, height: 30}}
+                />
+              </TouchableOpacity>
+            </View>
+            <TextInput placeholder={'Username'} style={css.modalTextInput} />
+            <TextInput placeholder={'Password'} style={css.modalTextInput} />
+            <TouchableOpacity style={css.modalButton}>
+              <Text style={{color: 'white'}}>Hide Modal</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
+
       <View style={css.header}>
         <Text style={css.headerWhite}>ORDER LIST</Text>
-        <TouchableOpacity style={css.headerWhite}>
+        <TouchableOpacity
+          style={css.headerWhite}
+          onPress={() => {
+            setModalVisible(!modalVisible);
+          }}>
           <View
             style={{
               backgroundColor: '#ffffff',
@@ -153,5 +191,48 @@ const css = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
+  },
+  mainModal: {
+    alignItems: 'center',
+    paddingTop: 70,
+  },
+  modalContainer: {
+    padding: 20,
+    width: 'auto',
+    height: 'auto',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#2E3035',
+    borderRadius: 10,
+  },
+  modalTextInput: {
+    width: 200,
+    height: 35,
+    borderRadius: 10,
+    backgroundColor: '#626467',
+    justifyContent: 'center',
+    paddingLeft: 20,
+    marginVertical: 5,
+  },
+  modalTextHeader: {
+    marginBottom: 10,
+    color: 'white',
+    fontSize: 22,
+    fontWeight: 'bold',
+  },
+  modalXButton: {
+    position: 'absolute',
+    right: -70,
+    top: -5,
+    backgroundColor: 'gray',
+    width: 30,
+    height: 30,
+    borderRadius: 50,
+  },
+  modalButton: {
+    backgroundColor: '#EF3829',
+    padding: 10,
+    borderRadius: 50,
+    marginTop: 15,
   },
 });
