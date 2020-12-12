@@ -13,6 +13,7 @@ function LoginScreen() {
   const navigation = useNavigation();
   const gotoRegis = () => navigation.navigate('RegisScreen');
   const gotoAdmin = () => navigation.navigate('AdminMenu');
+  const gotoUser = () => navigation.navigate('UserMenu')
   return (
     <SafeAreaView style={css.main}>
       <View>
@@ -46,7 +47,7 @@ function LoginScreen() {
           </TouchableOpacity>
           <TouchableOpacity
             style={css.loginbutton}
-            onPress={() => alert('Login to User')}>
+            onPress={gotoUser}>
             <Text style={{fontSize: 16}}>Login as User</Text>
           </TouchableOpacity>
         </View>
