@@ -58,7 +58,6 @@ const dataDummy = [
   },
 ];
 
-// const navigation = useNavigation();
 const renderList = ({item}) => (
   <TouchableOpacity
     style={css.flatlistcontainer}
@@ -87,6 +86,7 @@ const renderList = ({item}) => (
 
 function OrderList() {
   const [modalVisible, setModalVisible] = useState(false);
+  const navigation = useNavigation();
   return (
     <View>
       <Modal
@@ -113,8 +113,13 @@ function OrderList() {
             </View>
             <TextInput placeholder={'Username'} style={css.modalTextInput} />
             <TextInput placeholder={'Password'} style={css.modalTextInput} />
-            <TouchableOpacity style={css.modalButton}>
-              <Text style={{color: 'white'}}>Hide Modal</Text>
+            <TouchableOpacity
+              style={css.modalButton}
+              onPress={() => {
+                setModalVisible(!modalVisible);
+                navigation.navigate('LoginScreen');
+              }}>
+              <Text style={{color: 'white'}}>Logout</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -171,20 +176,20 @@ const css = StyleSheet.create({
   },
   container: {
     height: '92%',
-    alignItems: 'center',
     backgroundColor: '#2E3035',
     alignItems: 'center',
     opacity: 0.7,
-    padding: 10,
+    padding: 5,
   },
   flatlistcontainer: {
-    margin: 5,
+    marginVertical: 5,
     backgroundColor: 'white',
-    width: 300,
-    height: 80,
+    width: 330,
+    height: 100,
     borderRadius: 10,
     display: 'flex',
     flexDirection: 'row',
+    alignSelf: 'stretch',
   },
   TextContainer: {
     flex: 1,

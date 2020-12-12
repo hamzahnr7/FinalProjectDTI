@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {useNavigation} from '@react-navigation/native';
 import {Icons, modalLogout} from './components';
 import {
   View,
@@ -92,6 +93,7 @@ const renderList = ({item}) => (
 
 function EditMenu() {
   const [modalVisible, setModalVisible] = useState(false);
+  const navigation = useNavigation();
   return (
     <View>
       <Modal
@@ -119,7 +121,7 @@ function EditMenu() {
             <TextInput placeholder={'Username'} style={css.modalTextInput} />
             <TextInput placeholder={'Password'} style={css.modalTextInput} />
             <TouchableOpacity style={css.modalButton}>
-              <Text style={{color: 'white'}}>Hide Modal</Text>
+              <Text style={{color: 'white'}}>Logout</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -150,7 +152,9 @@ function EditMenu() {
         <ScrollView>
           <FlatList data={dataDummy} renderItem={renderList} />
         </ScrollView>
-        <TouchableOpacity style={css.createButton}>
+        <TouchableOpacity
+          style={css.createButton}
+          onPress={() => navigation.navigate('MenuScreen')}>
           <Text style={{color: 'white', fontWeight: 'bold', fontSize: 20}}>
             Create Menu
           </Text>
@@ -180,13 +184,13 @@ const css = StyleSheet.create({
     backgroundColor: '#2E3035',
     alignItems: 'center',
     opacity: 0.7,
-    padding: 10,
+    padding: 5,
   },
   flatlistcontainer: {
     margin: 5,
     backgroundColor: 'white',
-    width: 300,
-    height: 80,
+    width: 330,
+    height: 100,
     borderRadius: 10,
     display: 'flex',
     flexDirection: 'row',
@@ -203,7 +207,6 @@ const css = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    paddingVertical: 5,
   },
   createButton: {
     alignItems: 'center',
@@ -211,7 +214,7 @@ const css = StyleSheet.create({
     width: 300,
     padding: 5,
     borderRadius: 10,
-    marginTop: 10,
+    marginVertical: 10,
   },
   mainModal: {
     alignItems: 'center',

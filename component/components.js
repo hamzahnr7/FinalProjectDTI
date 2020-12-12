@@ -6,7 +6,8 @@ const Icons = ({size, iconName, bg}) => {
     <View
       style={{
         width: 80,
-        padding: 5,
+        paddingVertical: 10,
+        paddingHorizontal: 5,
         height: '100%',
         backgroundColor: bg,
         borderTopLeftRadius: 10,

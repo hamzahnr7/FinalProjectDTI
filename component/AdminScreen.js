@@ -24,9 +24,10 @@ function AdminScreen() {
     <Tab.Navigator
       tabBarOptions={{
         style: {
+          padding: 10,
           // borderTopLeftRadius: 15,
           // borderTopRightRadius: 15,
-          height: 60,
+          height: 80,
           // backgroundColor: 'blue',
         },
       }}>
