@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {useNavigation} from '@react-navigation/native';
 import {Icons} from './components';
 import {
   View,
@@ -57,8 +58,14 @@ const dataDummy = [
   },
 ];
 
+// const navigation = useNavigation();
 const renderList = ({item}) => (
-  <TouchableOpacity style={css.flatlistcontainer}>
+  <TouchableOpacity
+    style={css.flatlistcontainer}
+    // onPress={() => {
+    //   navigation.navigate('OrderDetail');
+    // }}
+  >
     <View>
       <Icons
         size={70}

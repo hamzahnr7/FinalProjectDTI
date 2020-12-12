@@ -24,6 +24,11 @@ const StackNavigation = () => {
         component={AdminScreen}
         options={{headerShown: false}}
       />
+      <Stack.Screen
+        name="OrderDetail"
+        component={AdminScreen}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 };
