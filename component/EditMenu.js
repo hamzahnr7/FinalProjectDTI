@@ -1,13 +1,14 @@
-import React from 'react';
-import {Icons} from './components';
+import React, {useState} from 'react';
+import {Icons, modalLogout} from './components';
 import {
   View,
   Text,
   Image,
+  Modal,
   FlatList,
-  SafeAreaView,
   ScrollView,
   StyleSheet,
+  TextInput,
   TouchableOpacity,
 } from 'react-native';
 
@@ -90,11 +91,45 @@ const renderList = ({item}) => (
 );
 
 function EditMenu() {
+  const [modalVisible, setModalVisible] = useState(false);
   return (
     <View>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+        }}>
+        <View style={css.mainModal}>
+          <View style={css.modalContainer}>
+            <View>
+              <Text style={css.modalTextHeader}>Logout</Text>
+              <TouchableOpacity
+                style={css.modalXButton}
+                onPress={() => {
+                  setModalVisible(!modalVisible);
+                }}>
+                <Image
+                  source={require('../assets/icon/cancel.png')}
+                  style={{width: 30, height: 30}}
+                />
+              </TouchableOpacity>
+            </View>
+            <TextInput placeholder={'Username'} style={css.modalTextInput} />
+            <TextInput placeholder={'Password'} style={css.modalTextInput} />
+            <TouchableOpacity style={css.modalButton}>
+              <Text style={{color: 'white'}}>Hide Modal</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
+
       <View style={css.header}>
         <Text style={css.headerWhite}>EDIT MENU</Text>
-        <TouchableOpacity style={css.headerWhite}>
+        <TouchableOpacity
+          style={css.headerWhite}
+          onPress={() => setModalVisible(!modalVisible)}>
           <View
             style={{
               backgroundColor: '#ffffff',
@@ -115,15 +150,7 @@ function EditMenu() {
         <ScrollView>
           <FlatList data={dataDummy} renderItem={renderList} />
         </ScrollView>
-        <TouchableOpacity
-          style={{
-            alignItems: 'center',
-            backgroundColor: '#4DD35B',
-            width: 300,
-            padding: 5,
-            borderRadius: 10,
-            marginTop: 10,
-          }}>
+        <TouchableOpacity style={css.createButton}>
           <Text style={{color: 'white', fontWeight: 'bold', fontSize: 20}}>
             Create Menu
           </Text>
@@ -177,5 +204,56 @@ const css = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-between',
     paddingVertical: 5,
+  },
+  createButton: {
+    alignItems: 'center',
+    backgroundColor: '#4DD35B',
+    width: 300,
+    padding: 5,
+    borderRadius: 10,
+    marginTop: 10,
+  },
+  mainModal: {
+    alignItems: 'center',
+    paddingTop: 70,
+  },
+  modalContainer: {
+    padding: 20,
+    width: 'auto',
+    height: 'auto',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#2E3035',
+    borderRadius: 10,
+  },
+  modalTextInput: {
+    width: 200,
+    height: 35,
+    borderRadius: 10,
+    backgroundColor: '#626467',
+    justifyContent: 'center',
+    paddingLeft: 20,
+    marginVertical: 5,
+  },
+  modalTextHeader: {
+    marginBottom: 10,
+    color: 'white',
+    fontSize: 22,
+    fontWeight: 'bold',
+  },
+  modalXButton: {
+    position: 'absolute',
+    right: -70,
+    top: -5,
+    backgroundColor: 'gray',
+    width: 30,
+    height: 30,
+    borderRadius: 50,
+  },
+  modalButton: {
+    backgroundColor: '#EF3829',
+    padding: 10,
+    borderRadius: 50,
+    marginTop: 15,
   },
 });

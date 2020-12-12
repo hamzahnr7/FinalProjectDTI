@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, Image} from 'react-native';
+import {View, Text, Modal, Image, TouchableHighlight} from 'react-native';
 
 const Icons = ({size, iconName, bg}) => {
   return (
@@ -20,4 +20,12 @@ const Icons = ({size, iconName, bg}) => {
   );
 };
 
-export {Icons};
+const modalLogout = () => {
+  return (
+    <View>
+      <Text>modalLogout</Text>
+    </View>
+  );
+};
+
+export {Icons, modalLogout};
