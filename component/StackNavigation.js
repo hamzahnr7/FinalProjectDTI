@@ -2,7 +2,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {LoginScreen} from './LoginScreen';
 import {RegisterScreen} from './RegisterScreen';
-import {AdminScreen} from './AdminScreen';
+import {AdminScreen} from './Admin/AdminScreen';
 import {UserScreen} from './UserScreen';
 import {MenuScreen} from './MenuScreen';
 import {PortalScreen} from './PortalScreen';
