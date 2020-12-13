@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, FlatList} from 'react-native';
+import {View, Text, FlatList,Image,TouchableOpacity} from 'react-native';
 
 function DaftarMenu() {
   return (
@@ -40,6 +40,15 @@ function DaftarMenu() {
                   <Text style={{marginLeft: 10, fontSize: 18, fontWeight: 'bold', color:'black'}}>Ayam Goreng</Text>
                   <Text style={{marginLeft: 10, marginTop: 6, fontSize: 12, width: 161, height:36,}}>Ayam bakar bumbu kecap dengan sambal terasi</Text>
                   <Text style={{marginLeft: 10, marginTop: 10,fontSize: 12, fontWeight: 'bold'}}>Harga : Rp 16.000</Text>
+                </View>
+                <View style={{flex:1, flexDirection: 'row', marginTop: 75}}>
+                  <TouchableOpacity>
+                    <Image source={require('../assets/icon/pluss.png')}/>
+                  </TouchableOpacity>
+                  <Text style={{fontSize:18, fontWeight:'500'}}>0</Text>
+                  <TouchableOpacity>
+                    <Image source={require('../assets/icon/minuss.png')}/>
+                  </TouchableOpacity>
                 </View>
             </View>
           )}
