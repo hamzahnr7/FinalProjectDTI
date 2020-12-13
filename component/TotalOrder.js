@@ -1,7 +1,11 @@
 import React from 'react';
 import {View, Text, StyleSheet,TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 function TotalOrder() {
+  const navigation = useNavigation();
+  const gotoCashlessPayment = () => navigation.navigate('CashlessPayment');
+  const gotoCashPayment = () => navigation.navigate('CashPayment');
   return (
     <View style= {{backgroundColor: '#FFF1E1'}}>
       <View style={{backgroundColor: '#FFB84C'}}>
@@ -116,7 +120,7 @@ function TotalOrder() {
           borderRadius: 10,
           marginLeft: 54,
           marginTop: 22,
-      }}>
+      }} onPress={gotoCashlessPayment}>
           <Text style={{
               fontSize: 14,
               fontWeight: 'bold',
@@ -132,7 +136,7 @@ function TotalOrder() {
           borderRadius: 10,
           marginLeft: 80,
           marginTop:22,
-      }}>
+      }} onPress={gotoCashPayment}>
           <Text style={{
               fontSize: 14,
               fontWeight: 'bold',

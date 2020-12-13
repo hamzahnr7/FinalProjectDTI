@@ -46,7 +46,7 @@ function DaftarMenu() {
                     <Image source={require('../assets/icon/pluss.png')}/>
                   </TouchableOpacity>
                   <Text style={{fontSize:18, fontWeight:'500'}}>0</Text>
-                  <TouchableOpacity>
+                  <TouchableOpacity style={{marginLeft:3}}>
                     <Image source={require('../assets/icon/minuss.png')}/>
                   </TouchableOpacity>
                 </View>

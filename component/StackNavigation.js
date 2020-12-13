@@ -7,6 +7,9 @@ import {UserScreen} from './UserScreen';
 import {MenuScreen} from './MenuScreen';
 import {PortalScreen} from './PortalScreen';
 import {InputKeyScreen} from './InputKeyScreen';
+import {CashlessPayment} from './CashlessPayment';
+import {CashlessSuccess} from './CashlessSuccess';
+import {CashPayment} from './CashPayment';
 
 const Stack = createStackNavigator();
 
@@ -46,6 +49,21 @@ const StackNavigation = () => {
       <Stack.Screen
         name="MenuScreen"
         component={MenuScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="CashlessPayment"
+        component={CashlessPayment}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="CashlessSuccess"
+        component={CashlessSuccess}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="CashPayment"
+        component={CashPayment}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
