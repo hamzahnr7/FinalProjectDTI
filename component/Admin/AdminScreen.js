@@ -21,7 +21,7 @@ const Icon2 = () => (
 
 const Icon3 = () => (
   <Image
-    source={require('../../assets/icon/menu.png')}
+    source={require('../../assets/icon/editmenu.png')}
     style={{width: 40, height: 40}}
   />
 );

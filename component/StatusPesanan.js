@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, FlatList} from 'react-native';
+import {View, Text, FlatList, Image, TouchableOpacity} from 'react-native';
 
 function StatusPesanan() {
   return (
@@ -18,11 +18,11 @@ function StatusPesanan() {
         </Text>  
       </View>
       <FlatList
-          data={[...Array(10)]}
+          data={[...Array(3)]}
           showsVerticalScrollIndicator={true}
           keyExtractor={(a, i) => i + 'a'}
           renderItem={({item, index}) => (
-            <View
+            <TouchableOpacity
               style={{
                 height: 120,
                 width: 350,
@@ -35,14 +35,16 @@ function StatusPesanan() {
                 alignSelf: 'center',
                 borderRadius: 10,
               }}>
-                <View style={{height:100, width:100, backgroundColor: '#BF7940', borderRadius: 20}}></View>
+                <View style={{height:100, width:100, backgroundColor: '#C85252', borderRadius: 20}}>
+                  <Image style={{height:100, width:100}} source={require('../assets/icon/cooking.png')}/>
+                </View>
                 <View>
                   <Text style={{marginLeft: 10, fontSize: 14, color:'black', fontWeight: 'bold'}}>Pesanan Anda Sedang Dimasak</Text>
                   <Text style={{marginLeft: 10, fontSize: 14, color:'black', fontWeight: 'bold'}}>Tunggu Sebentar Lagi Yaa</Text> 
                   <Text style={{marginLeft: 10, marginTop: 10,fontSize: 12, fontWeight: 'normal'}}>Order Number : AC291</Text>
                   <Text style={{marginLeft: 10, marginTop: 10,fontSize: 12, fontWeight: 'normal'}}>Nomor Meja : 01</Text>
                 </View>
-            </View>
+            </TouchableOpacity>
           )}
         />
     </View>
@@ -50,3 +52,4 @@ function StatusPesanan() {
 }
 
 export {StatusPesanan};
+
