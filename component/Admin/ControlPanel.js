@@ -5,6 +5,7 @@ import {
   SafeAreaView,
   StyleSheet,
   FlatList,
+  TouchableOpacity,
   Image,
 } from 'react-native';
 
@@ -59,12 +60,12 @@ function ControlPanel() {
             <Text style={css.role}>Admin</Text>
           </View>
           <View style={{justifyContent: 'center'}}>
-            <View style={css.IconContainer}>
+            <TouchableOpacity style={css.IconContainer}>
               <Image
                 source={require('../../assets/icon/exit.png')}
                 style={{width: 30, height: 30}}
               />
-            </View>
+            </TouchableOpacity>
           </View>
         </View>
         <View>
