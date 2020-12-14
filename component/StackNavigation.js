@@ -3,8 +3,9 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {LoginScreen} from './LoginScreen';
 import {RegisterScreen} from './RegisterScreen';
 import {AdminScreen} from './Admin/AdminScreen';
+import {MenuScreen} from './Admin/MenuScreen';
+import {OrderDetailScreen} from './Admin/OrderDetailScreen';
 import {UserScreen} from './UserScreen';
-import {MenuScreen} from './MenuScreen';
 import {PortalScreen} from './PortalScreen';
 import {InputKeyScreen} from './InputKeyScreen';
 import {CashlessPayment} from './CashlessPayment';
@@ -16,6 +17,11 @@ const Stack = createStackNavigator();
 const StackNavigation = () => {
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        name="OrderDetail"
+        component={OrderDetailScreen}
+        options={{headerShown: false}}
+      />
       <Stack.Screen
         name="PortalScreen"
         component={PortalScreen}

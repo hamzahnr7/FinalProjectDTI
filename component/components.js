@@ -37,7 +37,7 @@ const renderOrderList = ({item}) => {
       <View style={css.TextContainer}>
         <View style={css.insideTextContainer}>
           <Text style={css.textTitle}>{item.order_number}</Text>
-          <Text>{item.status}</Text>
+          <Text style={{marginBottom: 10}}>{item.status}</Text>
         </View>
         <View style={{alignSelf: 'center'}}>
           <Text>Meja {item.nomeja}</Text>

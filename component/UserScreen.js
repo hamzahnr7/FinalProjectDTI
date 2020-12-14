@@ -6,26 +6,39 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Image, View} from 'react-native';
 
 const IconMenu = ({name}) => (
-  <View style={{backgroundColor:'white', width: 60, height: 60, borderRadius: 60}}>
-  <Image style={{alignSelf:'center', marginTop: 5}}
-    source={require('../assets/icon/menu.png')}
-  />
+  <View
+    style={{
+      backgroundColor: 'white',
+      width: 60,
+      height: 60,
+      borderRadius: 60,
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}>
+    <Image
+      style={{marginTop: 5, width: 40, height: 40}}
+      source={require('../assets/icon/editmenu.png')}
+    />
   </View>
 );
 
 const IconTotal = ({name}) => (
-  <View style={{backgroundColor:'white', width: 60, height: 60, borderRadius: 60}}>
-  <Image style={{alignSelf:'center', marginTop: 8, marginLeft: 2}}
-    source={require('../assets/icon/invoices.png')}
-  />
+  <View
+    style={{backgroundColor: 'white', width: 60, height: 60, borderRadius: 60}}>
+    <Image
+      style={{alignSelf: 'center', marginTop: 8, marginLeft: 2}}
+      source={require('../assets/icon/invoices.png')}
+    />
   </View>
 );
 
 const IconStatus = ({name}) => (
-  <View style={{backgroundColor:'white', width: 60, height: 60, borderRadius: 60}}>
-  <Image style={{alignSelf:'center', marginTop: 5}}
-    source={require('../assets/icon/waiter.png')}
-  />
+  <View
+    style={{backgroundColor: 'white', width: 60, height: 60, borderRadius: 60}}>
+    <Image
+      style={{alignSelf: 'center', marginTop: 5}}
+      source={require('../assets/icon/waiter.png')}
+    />
   </View>
 );
 
@@ -40,19 +53,18 @@ function UserScreen() {
         name="DaftaMenu"
         component={DaftarMenu}
         options={{tabBarLabel: '', tabBarIcon: IconMenu}}
-        />
+      />
       <Tab.Screen
         name="TotalOrder"
         component={TotalOrder}
-        options={{tabBarLabel:'', tabBarIcon: IconTotal}}
-        />
+        options={{tabBarLabel: '', tabBarIcon: IconTotal}}
+      />
       <Tab.Screen
         name="StatusPesanan"
         component={StatusPesanan}
-        options={{tabBarLabel:'', tabBarIcon: IconStatus}}
+        options={{tabBarLabel: '', tabBarIcon: IconStatus}}
       />
     </Tab.Navigator>
-    
   );
 }
 
