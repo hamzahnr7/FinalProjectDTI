@@ -18,11 +18,6 @@ const StackNavigation = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="OrderDetail"
-        component={OrderDetailScreen}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
         name="PortalScreen"
         component={PortalScreen}
         options={{headerShown: false}}
@@ -40,6 +35,11 @@ const StackNavigation = () => {
       <Stack.Screen
         name="AdminMenu"
         component={AdminScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="OrderDetail"
+        component={OrderDetailScreen}
         options={{headerShown: false}}
       />
       <Stack.Screen
