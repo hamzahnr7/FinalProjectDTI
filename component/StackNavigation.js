@@ -18,13 +18,13 @@ const StackNavigation = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="OrderDetail"
-        component={OrderDetailScreen}
+        name="PortalScreen"
+        component={PortalScreen}
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="PortalScreen"
-        component={PortalScreen}
+        name="OrderDetail"
+        component={OrderDetailScreen}
         options={{headerShown: false}}
       />
       <Stack.Screen
