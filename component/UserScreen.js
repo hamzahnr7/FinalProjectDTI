@@ -7,17 +7,10 @@ import {Image, View} from 'react-native';
 
 const IconMenu = ({name}) => (
   <View
-    style={{
-      backgroundColor: 'white',
-      width: 60,
-      height: 60,
-      borderRadius: 60,
-      justifyContent: 'center',
-      alignItems: 'center',
-    }}>
+    style={{backgroundColor: 'white', width: 60, height: 60, borderRadius: 60}}>
     <Image
-      style={{marginTop: 5, width: 40, height: 40}}
-      source={require('../assets/icon/editmenu.png')}
+      style={{alignSelf: 'center', marginTop: 5}}
+      source={require('../assets/icon/menu.png')}
     />
   </View>
 );

@@ -43,6 +43,11 @@ const StackNavigation = () => {
         options={{headerShown: false}}
       />
       <Stack.Screen
+        name="OrderDetail"
+        component={OrderDetailScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
         name="InputKeyScreen"
         component={InputKeyScreen}
         options={{headerShown: false}}
