@@ -12,48 +12,58 @@ import {
 
 const postRegistrasi = () => {
   axios
-    .post('http://localhost:8080/regisAdmin', {
-      username: user,
-      password: pass,
-    })
+    // .get('https://localhost:8080/regisAdmin')
+    .get('https://reactnative.dev/movies.json')
     .then(function (response) {
-      console.log(response);
+      console.log(response.data);
     })
     .catch(function (error) {
       console.log(error);
     });
 };
 
-// useEffect(() => {
-//   postRegistrasi;
-// }, []);
-
 function RegisterScreen() {
-  const [user, setUser] = useState('Username');
-  const [pass, setPass] = useState('Password');
-  const [pass1, setPass1] = useState('Password');
+  useEffect(() => {
+    console.log('Change', button);
+    postRegistrasi;
+  });
+  const [user, setUser] = useState('');
+  const [pass, setPass] = useState('');
+  const [pass1, setPass1] = useState('');
+  const [button, setButton] = useState('button');
   const navigation = useNavigation();
-  const createAccount = () => navigation.navigate('LoginScreen');
+  const createAccount = () => {
+    setButton(() => !button);
+    postRegistrasi();
+    console.log(user, pass);
+  };
   return (
     <SafeAreaView style={css.main}>
       <View style={{marginBottom: 100}}>
         <Text style={css.texth2center}>Registration Account</Text>
       </View>
+      <Text style={css.textcenter}>Username</Text>
       <TextInput
         style={css.inputtext}
-        placeholderTextColor="#9B9B9B"
-        onChangeText={(text) => setUser(text)}
+        placeholder={'Username'}
+        keyboardType="visible-password"
+        onChangeText={(user) => setUser(user)}
         value={user}
+        // clearTextOnFocus={true}
       />
+      <Text style={css.textcenter}>Password</Text>
       <TextInput
+        secureTextEntry={true}
         style={css.inputtext}
-        placeholderTextColor="#9B9B9B"
+        // placeholder={pass}
         onChangeText={(text) => setPass(text)}
         value={pass}
       />
+      <Text style={css.textcenter}>Confirm Password</Text>
       <TextInput
+        secureTextEntry={true}
+        // placeholder={pass1}
         style={css.inputtext}
-        placeholderTextColor="#9B9B9B"
         onChangeText={(text) => setPass1(text)}
         value={pass1}
       />
@@ -78,14 +88,22 @@ const css = StyleSheet.create({
     color: 'white',
     textAlign: 'center',
     fontSize: 24,
+    fontFamily: 'Poppins',
+  },
+  textcenter: {
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 16,
+    fontFamily: 'Poppins',
   },
   inputtext: {
     paddingHorizontal: 15,
     backgroundColor: '#626467',
-    color: '#9B9B9B',
+    color: '#ffffff',
     margin: 5,
     borderRadius: 10,
     width: 250,
+    textAlign: 'center',
   },
   loginbutton: {
     alignSelf: 'center',
