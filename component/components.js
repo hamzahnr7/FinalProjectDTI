@@ -81,7 +81,72 @@ const renderMenuList = ({item}) => {
   );
 };
 
-export {Icons, renderOrderList, renderMenuList};
+const renderDaftarMenu = ({item}) => {
+  return (
+    <View
+      style={{
+        height: 120,
+        width: 350,
+        backgroundColor: '#FFC8AF',
+        elevation: 5,
+        marginVertical: 10,
+        flexDirection: 'row',
+        paddingVertical: 10,
+        paddingHorizontal: 10,
+        alignSelf: 'center',
+        borderRadius: 10,
+      }}>
+      <View
+        style={{
+          height: 100,
+          width: 100,
+          backgroundColor: '#BF7940',
+          borderRadius: 100,
+        }}></View>
+      <View>
+        <Text
+          style={{
+            marginLeft: 10,
+            fontSize: 18,
+            fontWeight: 'bold',
+            color: 'black',
+          }}>
+          {item.nama}
+        </Text>
+        <Text
+          style={{
+            marginLeft: 10,
+            marginTop: 6,
+            fontSize: 12,
+            width: 161,
+            height: 36,
+          }}>
+          {item.deskripsi}
+        </Text>
+        <Text
+          style={{
+            marginLeft: 10,
+            marginTop: 10,
+            fontSize: 12,
+            fontWeight: 'bold',
+          }}>
+          Harga : Rp {item.harga}
+        </Text>
+      </View>
+      <View style={{flex: 1, flexDirection: 'row', marginTop: 75}}>
+        <TouchableOpacity>
+          <Image source={require('../assets/icon/pluss.png')} />
+        </TouchableOpacity>
+        <Text style={{fontSize: 18, fontWeight: '500'}}>0</Text>
+        <TouchableOpacity style={{marginLeft: 3}}>
+          <Image source={require('../assets/icon/minuss.png')} />
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
+export {Icons, renderOrderList, renderMenuList, renderDaftarMenu};
 
 const css = StyleSheet.create({
   flatlistcontainer: {

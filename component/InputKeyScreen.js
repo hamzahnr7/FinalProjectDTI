@@ -25,7 +25,7 @@ function InputKeyScreen() {
       </View>
       <TouchableOpacity
         style={css.button}
-        onPress={() => navigation.navigate('UserMenu')}>
+        onPress={() => navigation.navigate('NoMejaScreen')}>
         <Text style={css.textButton}>Submit Key</Text>
       </TouchableOpacity>
     </SafeAreaView>

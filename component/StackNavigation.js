@@ -11,6 +11,8 @@ import {InputKeyScreen} from './InputKeyScreen';
 import {CashlessPayment} from './CashlessPayment';
 import {CashlessSuccess} from './CashlessSuccess';
 import {CashPayment} from './CashPayment';
+import {NoMejaScreen} from './NoMejaScreen';
+import {StackRouter} from '@react-navigation/native';
 
 const Stack = createStackNavigator();
 
@@ -30,6 +32,11 @@ const StackNavigation = () => {
       <Stack.Screen
         name="RegisScreen"
         component={RegisterScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="NoMejaScreen"
+        component={NoMejaScreen}
         options={{headerShown: false}}
       />
       <Stack.Screen
