@@ -12,8 +12,7 @@ import {
 
 const postRegistrasi = () => {
   axios
-    // .get('https://localhost:8080/regisAdmin')
-    .get('https://reactnative.dev/movies.json')
+    .get('http://orderin-server.fun/daftarmenu')
     .then(function (response) {
       console.log(response.data);
     })
