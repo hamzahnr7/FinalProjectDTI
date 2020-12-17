@@ -24,6 +24,11 @@ const StackNavigation = () => {
         component={PortalScreen}
         options={{headerShown: false}}
       />
+      {/* <Stack.Screen
+        name="OrderDetail"
+        component={OrderDetailScreen}
+        options={{headerShown: false}}
+      /> */}
       <Stack.Screen
         name="LoginAdminScreen"
         component={LoginScreen}

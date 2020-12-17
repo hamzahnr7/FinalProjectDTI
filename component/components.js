@@ -22,9 +22,9 @@ const Icons = ({size, iconName, bg}) => {
   );
 };
 
-// const gotoAdmin = () => navigation.navigate('LoginAdminScreen');
-// const navigation = useNavigation();
-const renderOrderList = ({item}) => {
+function renderOrderList({item}) {
+  const gotoAdmin = () => navigation.navigate('LoginAdminScreen');
+  const navigation = useNavigation();
   return (
     <TouchableOpacity style={css.flatlistcontainer}>
       <View>
@@ -45,7 +45,7 @@ const renderOrderList = ({item}) => {
       </View>
     </TouchableOpacity>
   );
-};
+}
 
 const renderMenuList = ({item}) => {
   return (
