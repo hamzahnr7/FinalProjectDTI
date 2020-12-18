@@ -94,6 +94,7 @@ const renderMenuList = ({item}) => {
 };
 
 const renderDaftarMenu = ({item}) => {
+  const [jum, setJum] = React.useState(0);
   return (
     <View
       style={{
@@ -146,11 +147,13 @@ const renderDaftarMenu = ({item}) => {
         </Text>
       </View>
       <View style={{flex: 1, flexDirection: 'row', marginTop: 75}}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => setJum((e) => e + 1)}>
           <Image source={require('../assets/icon/pluss.png')} />
         </TouchableOpacity>
-        <Text style={{fontSize: 18, fontWeight: '500'}}>0</Text>
-        <TouchableOpacity style={{marginLeft: 3}}>
+        <Text style={{fontSize: 18, fontWeight: '500'}}>{jum}</Text>
+        <TouchableOpacity
+          style={{marginLeft: 3}}
+          onPress={() => setJum((e) => e - 1)}>
           <Image source={require('../assets/icon/minuss.png')} />
         </TouchableOpacity>
       </View>

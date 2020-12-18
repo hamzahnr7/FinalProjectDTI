@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, FlatList, Image, TouchableOpacity} from 'react-native';
-import {renderDaftarMenu} from './components';
+import Render from './components';
 
 const data = [
   {
@@ -44,7 +44,7 @@ function DaftarMenu() {
       </View>
       <FlatList
         data={data}
-        renderItem={renderDaftarMenu}
+        renderItem={({item}) => <Render.renderDaftarMenu item={item} />}
         keyExtractor={(item) => item.id}
       />
     </View>

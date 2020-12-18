@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useNavigation} from '@react-navigation/native';
-import Render, {renderOrderList} from '../components';
+import Render from '../components';
 import {View, Text, FlatList, SafeAreaView, StyleSheet} from 'react-native';
 
 const dataDummy = [
