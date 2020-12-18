@@ -11,6 +11,16 @@ import {
 } from 'react-native';
 
 const Icons = ({size, iconName, bg}) => {
+  const gambar = {
+    image: {
+      1: require('../assets/icon/ayamgoreng.png'),
+      2: require('../assets/icon/ayambakar.png'),
+      3: require('../assets/icon/ayamtulanglunak.png'),
+      4: require('../assets/icon/nasiputih.png'),
+      5: require('../assets/icon/tehmanis.png'),
+      6: require('../assets/icon/tehmanishangat.png'),
+    },
+  };
   return (
     <View
       style={{
@@ -23,7 +33,7 @@ const Icons = ({size, iconName, bg}) => {
         borderBottomLeftRadius: 10,
       }}>
       <Image
-        source={iconName}
+        source={gambar.image[iconName]}
         style={{width: size, height: size, borderRadius: 50}}
       />
     </View>
@@ -63,11 +73,7 @@ const renderMenuList = ({item}) => {
   return (
     <View style={css.flatlistcontainer}>
       <View>
-        <Icons
-          size={70}
-          iconName={require('../assets/icon/serving.png')}
-          bg={'#C4C4C4'}
-        />
+        <Icons size={70} iconName={item.id} bg={'#C4C4C4'} />
       </View>
       <View style={css.TextContainer}>
         <View style={css.insideTextContainer}>
@@ -94,7 +100,7 @@ const renderMenuList = ({item}) => {
 };
 
 const renderDaftarMenu = ({item}) => {
-  const [jum, setJum] = React.useState(0);
+  const [jum, setJum] = useState(0);
   return (
     <View
       style={{
@@ -115,7 +121,12 @@ const renderDaftarMenu = ({item}) => {
           width: 100,
           backgroundColor: '#BF7940',
           borderRadius: 100,
-        }}></View>
+        }}>
+        <Image
+          style={{height: 100, width: 100, borderRadius: 100}}
+          source={gambar.image[item.id]}
+        />
+      </View>
       <View>
         <Text
           style={{
@@ -147,13 +158,13 @@ const renderDaftarMenu = ({item}) => {
         </Text>
       </View>
       <View style={{flex: 1, flexDirection: 'row', marginTop: 75}}>
-        <TouchableOpacity onPress={() => setJum((e) => e + 1)}>
+        <TouchableOpacity onPressIn={() => setJum((a) => a + 1)}>
           <Image source={require('../assets/icon/pluss.png')} />
         </TouchableOpacity>
         <Text style={{fontSize: 18, fontWeight: '500'}}>{jum}</Text>
         <TouchableOpacity
           style={{marginLeft: 3}}
-          onPress={() => setJum((e) => e - 1)}>
+          onPressIn={() => setJum((a) => a - 1)}>
           <Image source={require('../assets/icon/minuss.png')} />
         </TouchableOpacity>
       </View>
