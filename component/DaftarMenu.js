@@ -1,27 +1,48 @@
 import React from 'react';
 import {View, Text, FlatList, Image, TouchableOpacity} from 'react-native';
-import {renderDaftarMenu} from './components';
+import Render, {renderDaftarMenu} from './components';
 
 const data = [
   {
     id: '1',
     nama: 'Ayam Goreng',
-    deskripsi: 'Ayam goreng dengan sambal terasi enaak',
+    deskripsi: 'Ayam goreng dengan sambal terasi pedas mantap',
     harga: '16.000',
   },
 
   {
     id: '2',
-    nama: 'Ayam Goreng',
-    deskripsi: 'Ayam goreng dengan sambal terasi enaak',
+    nama: 'Ayam Bakar',
+    deskripsi: 'Ayam bakar nikmat dengan bumbu kecap khas',
     harga: '16.000',
   },
 
   {
     id: '3',
-    nama: 'Ayam Goreng',
-    deskripsi: 'Ayam goreng dengan sambal terasi enaak',
+    nama: 'Ayam Tulang Lunak',
+    deskripsi: 'Ayam tulang lunak empuk sampai tulang-tulangnya',
     harga: '16.000',
+  },
+
+  {
+    id: '4',
+    nama: 'Nasi Putih',
+    deskripsi: 'Nasi putih dari beras pilihan langsung dari petaninya',
+    harga: '5.000',
+  },
+
+  {
+    id: '5',
+    nama: 'Es Teh Manis',
+    deskripsi: 'Teh manis dikasih es biar dingin dan segar',
+    harga: '4.000',
+  },
+
+  {
+    id: '6',
+    nama: 'Teh Panas Manis',
+    deskripsi: 'Teh panas paling enak pas lagi musim dingin-dinginnya',
+    harga: '4.000',
   },
 ];
 
@@ -44,7 +65,9 @@ function DaftarMenu() {
       </View>
       <FlatList
         data={data}
-        renderItem={renderDaftarMenu}
+        renderItem={({item}) => (
+          <Render.renderDaftarMenu item={item} id={item.nama} />
+        )}
         keyExtractor={(item) => item.id}
       />
     </View>

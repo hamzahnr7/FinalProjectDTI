@@ -163,7 +163,7 @@ function StatusPesanan() {
         </View>
       </Modal>
       <FlatList
-        data={[...Array(3)]}
+        data={[...Array(1)]}
         showsVerticalScrollIndicator={true}
         keyExtractor={(a, i) => i + 'a'}
         renderItem={({item, index}) => (

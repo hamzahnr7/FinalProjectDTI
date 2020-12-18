@@ -15,37 +15,37 @@ const dataDummy = [
   {
     id: 1,
     gambar: 'cooking',
-    foodname: 'Ayam Bakar',
+    foodname: 'Ayam Goreng',
     foodprice: '16.000',
   },
   {
     id: 2,
     gambar: 'cooking',
-    foodname: 'Ayam Goreng',
+    foodname: 'Ayam Bakar',
     foodprice: '14.000',
   },
   {
     id: 3,
     gambar: 'cooking',
-    foodname: 'Nasi Goreng',
+    foodname: 'Ayam Tulang Lunak',
     foodprice: '12.000',
   },
   {
     id: 4,
     gambar: 'cooking',
-    foodname: 'Ayam Bakar',
+    foodname: 'Nasi Putih',
     foodprice: '16.000',
   },
   {
     id: 5,
     gambar: 'cooking',
-    foodname: 'Ayam Goreng',
+    foodname: 'Es Teh Manis',
     foodprice: '14.000',
   },
   {
     id: 6,
     gambar: 'cooking',
-    foodname: 'Nasi Goreng',
+    foodname: 'Teh Manis Hangat',
     foodprice: '12.000',
   },
 ];
