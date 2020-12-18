@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {renderMenuList} from '../components';
+import Render from '../components';
 import {
   View,
   Text,
@@ -61,7 +61,7 @@ function EditMenu() {
         <SafeAreaView style={{height: 'auto'}}>
           <FlatList
             data={dataDummy}
-            renderItem={renderMenuList}
+            renderItem={({item}) => <Render.renderMenuList item={item} />}
             keyExtractor={(item) => item.id}
           />
           <TouchableOpacity

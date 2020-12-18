@@ -16,9 +16,13 @@ function MenuScreen() {
   return (
     <View style={css.mainContainer}>
       <View style={css.insertImage}>
-        <View style={css.image}>
-          <Text style={css.blueText}>Insert Image</Text>
-        </View>
+        <TouchableOpacity style={css.image}>
+          <Image
+            source={require('../../assets/icon/camera.png')}
+            style={{width: 50, height: 50}}
+          />
+          {/* <Text style={css.blueText}>Insert Image</Text> */}
+        </TouchableOpacity>
         <View>
           <View>
             <Text style={css.blueText}>Name</Text>
@@ -44,15 +48,11 @@ function MenuScreen() {
           <Text style={css.blueText}>Makanan yang Tersedia</Text>
         </View>
         <View style={css.inputJumlahContainer}>
-          <TouchableOpacity onPress={() => setJumlah((a) => a - 1)}>
+          <TouchableOpacity onPressIn={() => setJumlah((a) => a - 1)}>
             <Image source={require('../../assets/icon/minuss.png')} />
           </TouchableOpacity>
-          <TextInput
-            style={css.inputJumlah}
-            value={jumlah}
-            onChangeText={(text) => onChangeText(text)}
-          />
-          <TouchableOpacity onPress={() => setJumlah((a) => a + 1)}>
+          <Text style={css.inputJumlah}>{jumlah}</Text>
+          <TouchableOpacity onPressIn={() => setJumlah((a) => a + 1)}>
             <Image source={require('../../assets/icon/pluss.png')} />
           </TouchableOpacity>
         </View>
@@ -103,10 +103,12 @@ const css = StyleSheet.create({
   },
   inputJumlah: {
     backgroundColor: '#B1B1B1',
+    color: '#ffffff',
     width: 40,
     height: 40,
     borderRadius: 10,
     textAlign: 'center',
+    textAlignVertical: 'center',
   },
   menuButton: {
     backgroundColor: '#4DD35B',

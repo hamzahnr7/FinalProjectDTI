@@ -1,12 +1,15 @@
 import React from 'react';
+import {useNavigation} from '@react-navigation/native';
 import {
   View,
   Text,
+  TextInput,
   SafeAreaView,
   StyleSheet,
   FlatList,
   TouchableOpacity,
   Image,
+  Modal,
 } from 'react-native';
 
 const dataDummy = [
@@ -41,8 +44,36 @@ const renderFlatlist = ({item}) => {
 };
 
 function ControlPanel() {
+  const [modalVisible, setModalVisible] = React.useState(false);
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={{height: '100%'}}>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+        }}>
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>
+              Apakah anda ingin Menutup Retoran?
+            </Text>
+            <TextInput placeholder={'Username'} style={styles.inputModal} />
+            <TextInput placeholder={'Password'} style={styles.inputModal} />
+            <TouchableOpacity
+              style={{...styles.openButton, backgroundColor: '#2196F3'}}
+              onPress={() => {
+                setModalVisible(!modalVisible);
+                navigation.navigate('LoginAdminScreen');
+              }}>
+              <Text style={styles.textStyle}>Confirm</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
+
       <View style={css.dataContainer}>
         <View>
           <Text style={css.dataTitle}>Admin Key</Text>
@@ -60,7 +91,9 @@ function ControlPanel() {
             <Text style={css.role}>Admin</Text>
           </View>
           <View style={{justifyContent: 'center'}}>
-            <TouchableOpacity style={css.IconContainer}>
+            <TouchableOpacity
+              style={css.IconContainer}
+              onPress={() => setModalVisible(true)}>
               <Image
                 source={require('../../assets/icon/exit.png')}
                 style={{width: 30, height: 30}}
@@ -150,5 +183,50 @@ const css = StyleSheet.create({
     fontFamily: 'Poppins',
     fontSize: 18,
     color: '#ffffff',
+  },
+});
+
+const styles = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 15,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 25,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  openButton: {
+    backgroundColor: '#F194FF',
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
+  },
+  inputModal: {
+    backgroundColor: '#f1f1f1',
+    paddingHorizontal: 50,
+    borderRadius: 50,
+    marginBottom: 10,
   },
 });

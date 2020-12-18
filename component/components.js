@@ -51,6 +51,7 @@ const renderOrderList = ({item}) => {
 };
 
 const renderMenuList = ({item}) => {
+  const navigation = useNavigation();
   return (
     <View style={css.flatlistcontainer}>
       <View>
@@ -66,7 +67,7 @@ const renderMenuList = ({item}) => {
           <Text>Rp {item.foodprice}</Text>
         </View>
         <View style={css.flatlistIcon}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('MenuScreen')}>
             <Image
               source={require('../assets/icon/edit.png')}
               style={{width: 30, height: 30}}
