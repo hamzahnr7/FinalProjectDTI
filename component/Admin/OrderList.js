@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import axios from 'axios';
 import {useNavigation} from '@react-navigation/native';
-import component from '../components';
+import Render, {renderOrderList} from '../components';
 import {View, Text, FlatList, SafeAreaView, StyleSheet} from 'react-native';
 
 const dataDummy = [
@@ -61,7 +61,10 @@ function OrderList() {
           <View>
             <FlatList
               data={dataDummy}
-              renderItem={(data) => <component.renderOrderList item={data} />}
+              // renderItem={renderOrderList}
+              renderItem={({item}) => (
+                <Render.renderOrderList item={item} id={item.id} />
+              )}
               keyExtractor={(item) => item.id}
             />
           </View>

@@ -22,11 +22,14 @@ const Icons = ({size, iconName, bg}) => {
   );
 };
 
-function renderOrderList({item}) {
-  const gotoAdmin = () => navigation.navigate('LoginAdminScreen');
+const renderOrderList = ({item}) => {
   const navigation = useNavigation();
+  const gotoDetail = () => {
+    // alert('Go To Details Screen');
+    navigation.navigate('OrderDetail');
+  };
   return (
-    <TouchableOpacity style={css.flatlistcontainer}>
+    <TouchableOpacity style={css.flatlistcontainer} onPress={gotoDetail}>
       <View>
         <Icons
           size={70}
@@ -45,7 +48,7 @@ function renderOrderList({item}) {
       </View>
     </TouchableOpacity>
   );
-}
+};
 
 const renderMenuList = ({item}) => {
   return (
@@ -146,7 +149,7 @@ const renderDaftarMenu = ({item}) => {
   );
 };
 
-export {Icons, renderOrderList, renderMenuList, renderDaftarMenu};
+export default {Icons, renderOrderList, renderMenuList, renderDaftarMenu};
 
 const css = StyleSheet.create({
   flatlistcontainer: {

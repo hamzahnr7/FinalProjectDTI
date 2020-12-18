@@ -76,7 +76,7 @@ function OrderDetailScreen() {
       </View>
       <TouchableOpacity
         style={css.buttonStatus}
-        onPress={() => navigation.navigate('PortalScreen')}>
+        onPress={() => navigation.goBack()}>
         <Text style={css.buttonText}>Sudah Dibayar</Text>
       </TouchableOpacity>
     </SafeAreaView>

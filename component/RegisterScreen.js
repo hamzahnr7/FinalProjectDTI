@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import axios from 'axios';
 import {
@@ -15,6 +15,12 @@ const postRegistrasi = () => {
     .get('http://orderin-server.fun/daftarmenu')
     .then(function (response) {
       console.log(response.data);
+      // return response.data;
+      // let menu = response.data[0].nama;
+      // return menu;
+      // if (response.data.nama == 'batagor') {
+      return true;
+      // }
     })
     .catch(function (error) {
       console.log(error);
@@ -22,19 +28,22 @@ const postRegistrasi = () => {
 };
 
 function RegisterScreen() {
-  useEffect(() => {
-    console.log('Change', button);
-    postRegistrasi;
-  });
+  const navigation = useNavigation();
+  // const gotoLogin = navigation.navigate('LoginAdminScreen');
   const [user, setUser] = useState('');
   const [pass, setPass] = useState('');
   const [pass1, setPass1] = useState('');
-  const [button, setButton] = useState('button');
-  const navigation = useNavigation();
+  const [button, setButton] = useState(false);
   const createAccount = () => {
     setButton(() => !button);
+    // console.log(postRegistrasi());
     postRegistrasi();
-    console.log(user, pass);
+    // if (postRegistrasi) {
+    //   console.log('Berhasil');
+    navigation.navigate('LoginAdminScreen');
+    // } else {
+    //   console.log('Login Gagal');
+    // }
   };
   return (
     <SafeAreaView style={css.main}>
@@ -48,7 +57,6 @@ function RegisterScreen() {
         keyboardType="visible-password"
         onChangeText={(user) => setUser(user)}
         value={user}
-        // clearTextOnFocus={true}
       />
       <Text style={css.textcenter}>Password</Text>
       <TextInput
