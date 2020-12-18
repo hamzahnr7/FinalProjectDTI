@@ -158,7 +158,6 @@ const renderDaftarMenu = ({item}) => {
   );
 };
 
-<<<<<<< HEAD
 // const renderStatusPesanan = ({item}) => {
 //   const [modalVisible, setModalVisible] = useState(false);
 //   const navigation = useNavigation();
@@ -372,9 +371,7 @@ const renderDaftarMenu = ({item}) => {
 // };
 
 export {Icons, renderOrderList, renderMenuList, renderDaftarMenu};
-=======
 export default {Icons, renderOrderList, renderMenuList, renderDaftarMenu};
->>>>>>> d96aa394892a148a0574b4b5add69f911f51a594
 
 const css = StyleSheet.create({
   flatlistcontainer: {
