@@ -2,23 +2,23 @@ import React from 'react';
 import {View, Text, FlatList, Image, TouchableOpacity} from 'react-native';
 import {renderDaftarMenu} from './components';
 
-const dataDummy = [
+const data = [
   {
-    id: '',
+    id: '1',
     nama: 'Ayam Goreng',
     deskripsi: 'Ayam goreng dengan sambal terasi enaak',
     harga: '16.000',
   },
 
   {
-    id: '',
+    id: '2',
     nama: 'Ayam Goreng',
     deskripsi: 'Ayam goreng dengan sambal terasi enaak',
     harga: '16.000',
   },
 
   {
-    id: '',
+    id: '3',
     nama: 'Ayam Goreng',
     deskripsi: 'Ayam goreng dengan sambal terasi enaak',
     harga: '16.000',
@@ -43,7 +43,7 @@ function DaftarMenu() {
         </Text>
       </View>
       <FlatList
-        data={dataDummy}
+        data={data}
         renderItem={renderDaftarMenu}
         keyExtractor={(item) => item.id}
       />

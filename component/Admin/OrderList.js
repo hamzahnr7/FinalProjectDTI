@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import axios from 'axios';
 import {useNavigation} from '@react-navigation/native';
 import component from '../components';
 import {View, Text, FlatList, SafeAreaView, StyleSheet} from 'react-native';
