@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
   Image,
   Modal,
+  BackHandler,
 } from 'react-native';
 
 const dataDummy = [
@@ -61,7 +62,11 @@ function ControlPanel() {
               Apakah anda ingin Menutup Retoran?
             </Text>
             <TextInput placeholder={'Username'} style={styles.inputModal} />
-            <TextInput placeholder={'Password'} style={styles.inputModal} />
+            <TextInput
+              placeholder={'Password'}
+              style={styles.inputModal}
+              secureTextEntry={true}
+            />
             <TouchableOpacity
               style={{...styles.openButton, backgroundColor: '#2196F3'}}
               onPress={() => {

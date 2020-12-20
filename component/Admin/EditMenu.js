@@ -9,6 +9,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   SafeAreaView,
+  BackHandler,
 } from 'react-native';
 
 const dataDummy = [

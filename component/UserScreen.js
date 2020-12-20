@@ -4,7 +4,6 @@ import {TotalOrder} from './TotalOrder';
 import {StatusPesanan} from './StatusPesanan';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Image, View} from 'react-native';
-import {StackNavigation} from './StackNavigation';
 
 const IconMenu = ({name}) => (
   <View

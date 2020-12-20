@@ -1,5 +1,6 @@
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
+import axios from 'axios';
 
 import {
   View,
@@ -11,9 +12,36 @@ import {
 } from 'react-native';
 
 function LoginScreen() {
+  const Login = () => {
+    axios
+      .post('http://orderin-server.fun/loginAdmin', {
+        username: user,
+        password: pass,
+      })
+      .then(function (response) {
+        var json = JSON.stringify(response.data);
+        setData(json);
+      });
+  };
   const navigation = useNavigation();
+  const [user, setUser] = React.useState('');
+  const [pass, setPass] = React.useState('');
+  const [data, setData] = React.useState('');
   const gotoRegis = () => navigation.navigate('RegisScreen');
-  const gotoAdmin = () => navigation.navigate('AdminMenu');
+  const gotoAdmin = () => {
+    console.log(user, pass);
+    if (user && pass) {
+      Login();
+      console.log(data);
+      if (!data) {
+        navigation.navigate('AdminMenu');
+      } else {
+        alert('Username dan Password Salah');
+      }
+    } else {
+      alert('Input Username dan Passowrd');
+    }
+  };
   return (
     <SafeAreaView style={css.main}>
       <View>
@@ -24,11 +52,14 @@ function LoginScreen() {
           <TextInput
             placeholder="Username"
             style={css.inputtext}
+            onChangeText={(user) => setUser(user)}
             placeholderTextColor="#9B9B9B"
           />
           <TextInput
+            secureTextEntry={true}
             placeholder="Password"
             style={css.inputtext}
+            onChangeText={(pass) => setPass(pass)}
             placeholderTextColor="#9B9B9B"
           />
           <TouchableOpacity style={css.loginbutton} onPress={gotoAdmin}>

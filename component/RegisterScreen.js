@@ -10,40 +10,48 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-const postRegistrasi = () => {
-  axios
-    .get('http://orderin-server.fun/daftarmenu')
-    .then(function (response) {
-      console.log(response.data);
-      // return response.data;
-      // let menu = response.data[0].nama;
-      // return menu;
-      // if (response.data.nama == 'batagor') {
-      return true;
-      // }
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-};
-
 function RegisterScreen() {
+  const postRegistrasi = () => {
+    axios({
+      method: 'post',
+      url: 'http://orderin-server.fun/regisAdmin',
+      data: {
+        username: user,
+        password: pass,
+      },
+    }).then(function (response) {
+      setData(response.data);
+    });
+    // axios
+    //   // .get('https://reactnative.dev/movies.json')
+    //   // .get('http://orderin-server.fun/daftarmenu')
+    //   .post('http://orderin-server.fun/regisAdmin', {
+    //     username = user,
+    //     password = pass,
+    //   })
+    //   .then(function (response) {
+    //     setData(response.data);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
+  };
   const navigation = useNavigation();
-  // const gotoLogin = navigation.navigate('LoginAdminScreen');
+  const [data, setData] = useState('');
   const [user, setUser] = useState('');
   const [pass, setPass] = useState('');
   const [pass1, setPass1] = useState('');
   const [button, setButton] = useState(false);
   const createAccount = () => {
     setButton(() => !button);
-    // console.log(postRegistrasi());
-    postRegistrasi();
-    // if (postRegistrasi) {
-    //   console.log('Berhasil');
-    navigation.navigate('LoginAdminScreen');
-    // } else {
-    //   console.log('Login Gagal');
-    // }
+    if (pass == pass1) {
+      console.log(user, pass);
+      postRegistrasi();
+      console.log(data);
+      // navigation.navigate('LoginAdminScreen');
+    } else {
+      alert('Confirmasi Password Berbeda');
+    }
   };
   return (
     <SafeAreaView style={css.main}>

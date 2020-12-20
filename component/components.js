@@ -10,17 +10,17 @@ import {
   Alert,
 } from 'react-native';
 
+const gambar = {
+  image: {
+    1: require('../assets/icon/ayamgoreng.png'),
+    2: require('../assets/icon/ayambakar.png'),
+    3: require('../assets/icon/ayamtulanglunak.png'),
+    4: require('../assets/icon/nasiputih.png'),
+    5: require('../assets/icon/tehmanis.png'),
+    6: require('../assets/icon/tehmanishangat.png'),
+  },
+};
 const Icons = ({size, iconName, bg}) => {
-  const gambar = {
-    image: {
-      1: require('../assets/icon/ayamgoreng.png'),
-      2: require('../assets/icon/ayambakar.png'),
-      3: require('../assets/icon/ayamtulanglunak.png'),
-      4: require('../assets/icon/nasiputih.png'),
-      5: require('../assets/icon/tehmanis.png'),
-      6: require('../assets/icon/tehmanishangat.png'),
-    },
-  };
   return (
     <View
       style={{
